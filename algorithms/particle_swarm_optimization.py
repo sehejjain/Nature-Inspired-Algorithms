@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1, '../')
 from algorithms.algorithm import Algorithm, Ackley
 from numpy import argmin, asarray, apply_along_axis, where, full, inf, zeros, append
 import logging
@@ -14,7 +16,7 @@ class ParticleSwarmOptimization(Algorithm):
 
         self.c1 = kwargs.pop('c1', 2.0)  # cognitive component
         self.c2 = kwargs.pop('c2', 2.0)  # social component
-        self.w = kwargs.pop('w', 0.7)  # inertia weight
+        self.w = kwargs.pop('w', 1)  # inertia weight
         self.v_max = kwargs.pop('v_max', 4)  # maximal velocity
         self.v_min = kwargs.pop('v_min', -self.v_max)  # minimal velocity
 
