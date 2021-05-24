@@ -4,7 +4,7 @@ from benchmarks.benchmark import Benchmark
 
 class Sphere(Benchmark):
     """dim: n"""
-    def __init__(self, lower=-5.12, upper=5.12, dimension=2):
+    def __init__(self, lower=-100, upper=100, dimension=2):
         super(Sphere, self).__init__(lower, upper, dimension)
 
     def get_optimum(self):
