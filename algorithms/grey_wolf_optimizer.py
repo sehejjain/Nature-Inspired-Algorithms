@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1, '../')
 from algorithms.algorithm import Algorithm, Ackley
 from numpy import asarray, apply_along_axis, inf, zeros, fabs, argsort, append
 import logging
