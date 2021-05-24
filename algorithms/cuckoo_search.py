@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1, '../')
 from algorithms.algorithm import Algorithm, Ackley
 from numpy import argmin, apply_along_axis, empty_like, where, power, sin, fabs, pi, append, zeros
 from scipy.special import gamma
@@ -13,7 +15,7 @@ class CuckooSearch(Algorithm):
         # self.population = kwargs.setdefault('population', 25)  # [15, 50], 25 in Matlab
         super().__init__(**kwargs)
 
-        self.pa = kwargs.pop('pa', 0.25)  # Discovery rate of alien eggs/solutions [0, 0.5]
+        self.pa = kwargs.pop('pa', 0.4)  # Discovery rate of alien eggs/solutions [0, 0.5]
         self.alpha = kwargs.pop('alpha', 1)  # The step size. (alpha>0) Paper recommend value: 1; Matlab: 0.01
         self.lamb = kwargs.pop('lamb', 1.5)  # Levy exponent and coefficient. (lambda must be in [0, 2] or sigma_u<0)
 
