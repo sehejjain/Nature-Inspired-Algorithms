@@ -1,6 +1,7 @@
 import abc
 from numpy import asarray, random, where, pi, cos, exp, sqrt, full, zeros, array, arange, dtype
 import pandas as pd
+import numpy as np
 import logging
 
 logging.basicConfig(format='%(asctime)s - %(filename)s - [line:%(lineno)d] - %(levelname)s: %(message)s',
@@ -29,10 +30,11 @@ class Algorithm(metaclass=abc.ABCMeta):
         # self.evaluations, self.iterations_num = 0, kwargs.pop('niter', 200)
 
         self.func = kwargs.pop('func', Ackley())
-        self.population = kwargs.pop('population', 30)
+        self.population = kwargs.pop('population', 20)
         self.iterations = kwargs.pop('iterations', 200)
         self.precision = kwargs.pop('precision', 1e-31)
-        self.Rand = random.RandomState(kwargs.pop('seed', 1))  # random generator
+        # self.Rand = random.RandomState(kwargs.pop('seed', 1))  # random generator
+        self.Rand = random.RandomState()  # random generator
 
         self.lower, self.upper = asarray(self.func.lower), asarray(self.func.upper)
         self.dim = self.func.dimension
