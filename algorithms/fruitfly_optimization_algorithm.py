@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1, '../')
 from algorithms.algorithm import Algorithm, Ackley
 from scipy.spatial.distance import euclidean as ed
 from numpy import apply_along_axis, argmin, asarray, sqrt, where, append
