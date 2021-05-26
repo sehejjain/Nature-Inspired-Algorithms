@@ -12,27 +12,27 @@ logger.setLevel('INFO')
 
 list1 = []
 import tqdm
-filename = "sphere_cs.csv"
+filename = "ackley_gwo.csv"
 try:
     orig_df = pd.read_csv(filename)
     orig_df = orig_df.drop(columns=["Unnamed: 0"])
 except:
     pass
 
-for i in range(1):
-    cs = SquirrelSearchAlgorithm(func=Ackley(), iterations=500, debug=False)
+for i in tqdm.trange(10):
+    cs = GreyWolfOptimizer(func=Ackley(), iterations=500, debug=False)
     best_sol, best_val = cs.run()
-    # list1.append(best_val)
+    list1.append(best_val)
     # best_sol, best_val = cs.run()
-    logger.info("best sol:{sol}, best val:{val}".format(sol=best_sol, val=best_val))
+    # logger.info("best sol:{sol}, best val:{val}".format(sol=best_sol, val=best_val))
 
-# import pandas as pd
+import pandas as pd
 
-# df = pd.DataFrame(list1, columns=["fitness"])
-# try:
-#     df = df.append(orig_df) 
-# except :
-#     pass
+df = pd.DataFrame(list1, columns=["fitness"])
+try:
+    df = df.append(orig_df) 
+except :
+    pass
 
-# df.to_csv(filename)
+df.to_csv(filename)
 
