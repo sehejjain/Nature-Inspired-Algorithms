@@ -12,11 +12,11 @@ logger.setLevel('INFO')
 
 class CuckooSearch(Algorithm):
     def __init__(self, **kwargs):
-        # self.population = kwargs.setdefault('population', 25)  # [15, 50], 25 in Matlab
+        self.population = kwargs.setdefault('population', 20)  # [15, 50], 25 in Matlab
         super().__init__(**kwargs)
 
         self.pa = kwargs.pop('pa', 0.4)  # Discovery rate of alien eggs/solutions [0, 0.5]
-        self.alpha = kwargs.pop('alpha', 1)  # The step size. (alpha>0) Paper recommend value: 1; Matlab: 0.01
+        self.alpha = kwargs.pop('alpha', 0.5)  # The step size. (alpha>0) Paper recommend value: 1; Matlab: 0.01
         self.lamb = kwargs.pop('lamb', 1.5)  # Levy exponent and coefficient. (lambda must be in [0, 2] or sigma_u<0)
 
     def levy_flight(self, beta):
