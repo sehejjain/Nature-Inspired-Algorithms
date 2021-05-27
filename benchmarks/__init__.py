@@ -14,9 +14,12 @@ from benchmarks.rastrigin import Rastrigin
 from benchmarks.rosenbrock import Rosenbrock
 from benchmarks.schaffer2 import Schaffer2
 from benchmarks.schwefel import Schwefel
+from benchmarks.schwefel2 import Schwefel2
 from benchmarks.shubert import Shubert
 from benchmarks.sphere import Sphere
 from benchmarks.stybtang import Stybtang
+from benchmarks.xinSheYangN2 import XinSheYangN2
+
 from benchmarks import cec2014
 
 
@@ -38,7 +41,9 @@ __all__ = [
     'Rosenbrock',
     'Schaffer2',
     'Schwefel',
+    'Schwefel2',
     'Shubert',
     'Sphere',
-    'Stybtang'
+    'Stybtang',
+    'XinSheYangN2'
 ]
