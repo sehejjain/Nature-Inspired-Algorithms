@@ -1,7 +1,7 @@
 from numpy import array, cos
 from benchmarks.benchmark import Benchmark
 
-
+# SHubert N4
 class Shubert(Benchmark):
     """dim: 2"""
     def __init__(self, lower=-10, upper=10, dimension=2):
