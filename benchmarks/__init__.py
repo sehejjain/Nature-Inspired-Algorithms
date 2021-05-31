@@ -18,6 +18,7 @@ from benchmarks.schwefel2 import Schwefel2
 from benchmarks.shubert import Shubert
 from benchmarks.sphere import Sphere
 from benchmarks.stybtang import Stybtang
+from benchmarks.pressureVessel import PressureVessel
 from benchmarks.xinSheYangN2 import XinSheYangN2
 
 from benchmarks import cec2014
@@ -37,6 +38,7 @@ __all__ = [
     'Holdertable',
     'Levy13',
     'Michalewicz',
+    'PressureVessel',
     'Rastrigin',
     'Rosenbrock',
     'Schaffer2',
