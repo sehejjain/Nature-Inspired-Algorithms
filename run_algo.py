@@ -27,6 +27,6 @@ class CustomBenchmark(Benchmark):
 logging.basicConfig()
 logger = logging.getLogger('cs')
 logger.setLevel('INFO')
-opti = ArtificialBeeColony(func=CustomBenchmark(), iterations=1000, debug=False, numb_bees = 20, upper=[5,5], lower=[-5,-5])
+opti = ArtificialBeeColony(func=CustomBenchmark(), iterations=500, debug=False, numb_bees = 20)
 best_sol, best_val = opti.run()
 logger.info("best sol:{sol}, best val:{val}".format(sol=best_sol, val=best_val))
