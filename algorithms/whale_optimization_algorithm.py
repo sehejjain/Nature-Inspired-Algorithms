@@ -56,6 +56,7 @@ class WhaleOptimizationAlgorithm(Algorithm):
         leader_pos, leader_fit = whale_pos[ibest], whale_fit[ibest]
 
         self.iter = 0
+        self.progress = []
         while not self.stopping_criteria(self.iter):
             self.iter += 1
             self.iter_swarm_pos.loc[self.iter] = whale_pos
@@ -75,7 +76,8 @@ class WhaleOptimizationAlgorithm(Algorithm):
             ibest = argmin(whale_fit)
             if whale_fit[ibest] < leader_fit:
                 leader_pos, leader_fit = whale_pos[ibest], whale_fit[ibest]
-
+            
+            self.progress.append(leader_fit)
         self.best_solution.iloc[:] = append(leader_pos, leader_fit)
         return leader_pos, leader_fit
 

@@ -52,6 +52,7 @@ class FruitFly(Algorithm):
         best_y_axis = y_axis[i_best]  # the Y axis of min fitness
         global_smell_best = best_smell
         global_best_sol = sol[i_best]
+        self.progress = []
 
         while not self.stopping_criteria(self.iter):
             self.iter += 1
@@ -78,7 +79,7 @@ class FruitFly(Algorithm):
                 best_y_axis = y_axis[i_best]
                 global_best_sol = sol[i_best]
                 global_smell_best = best_smell
-
+            self.progress.append(best_smell)
         self.best_solution.iloc[:] = append(global_best_sol, global_smell_best)
         return global_best_sol, global_smell_best
 

@@ -121,6 +121,7 @@ class WaterWaveOptimization(Algorithm):
         beta = self.betaMax
 
         self.iter = 0
+        self.progress = []
         while not self.stopping_criteria(self.iter):
             self.iter += 1
             self.iter_swarm_pos.loc[self.iter] = water_wave_pos
@@ -149,6 +150,8 @@ class WaterWaveOptimization(Algorithm):
             best_pos, best_fit = water_wave_pos[min_index], water_wave_fit[min_index]
             wave_length = asarray([self.update_wave_length(wave_length[i], water_wave_fit[i], water_wave_fit[max_index], water_wave_fit[min_index]) for i in range(self.population)])
             beta = self.update_beta()
+
+            self.progress.append(best_fit)
 
         self.best_solution.iloc[:] = append(best_pos, best_fit)
         return best_pos, best_fit

@@ -45,6 +45,7 @@ class ParticleSwarmOptimization(Algorithm):
         return x
 
     def run(self):
+        self.progress = []
         particle_pos = self.initial_position()
         particle_fit = apply_along_axis(self.cost_function, 1, particle_pos)
         ibest = argmin(particle_fit)
@@ -74,7 +75,7 @@ class ParticleSwarmOptimization(Algorithm):
             ibest = argmin(particle_fit)
             if gbest_fit > particle_fit[ibest]:
                 gbest_pos, gbest_fit = particle_pos[ibest], particle_fit[ibest]
-
+            self.progress.append(gbest_fit)
         self.best_solution.iloc[:] = append(gbest_pos, gbest_fit)
         return gbest_pos, gbest_fit
 

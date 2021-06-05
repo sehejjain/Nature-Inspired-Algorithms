@@ -7,6 +7,7 @@ from algorithms.krill_herd import KrillHerdBase, KrillHerd
 from algorithms.particle_swarm_optimization import ParticleSwarmOptimization
 from algorithms.squirrel_search_algorithm import SquirrelSearchAlgorithm
 from algorithms.water_wave_optimization import WaterWaveOptimization
+from algorithms.artificial_bee_colony import ArtificialBeeColony
 from algorithms.whale_optimization_algorithm import WhaleOptimizationAlgorithm
 
 __all__ = [
@@ -20,7 +21,8 @@ __all__ = [
     'ParticleSwarmOptimization',
     'SquirrelSearchAlgorithm',
     'WaterWaveOptimization',
-    'WhaleOptimizationAlgorithm'
+    'WhaleOptimizationAlgorithm',
+    'ArtificialBeeColony'
 ]
 
 Abbreviation = {
@@ -33,4 +35,5 @@ Abbreviation = {
     'SquirrelSearchAlgorithm': 'SSA',
     'WaterWaveOptimization': 'WWO',
     'WhaleOptimizationAlgorithm': 'WOA',
+    'ArtificialBeeColony': 'ABC'
 }
