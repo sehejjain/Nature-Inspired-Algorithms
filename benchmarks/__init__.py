@@ -20,6 +20,7 @@ from benchmarks.sphere import Sphere
 from benchmarks.stybtang import Stybtang
 from benchmarks.pressureVessel import PressureVessel
 from benchmarks.xinSheYangN2 import XinSheYangN2
+from benchmarks.freqModulated import FreqModulated
 
 from benchmarks import cec2014
 
@@ -34,6 +35,7 @@ __all__ = [
     'Crossit',
     'Easom',
     'Eggholder',
+    'FreqModulated',
     'Griewank',
     'Holdertable',
     'Levy13',

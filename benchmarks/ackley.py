@@ -1,4 +1,6 @@
 from numpy import zeros, pi, cos, exp, sqrt, array
+import sys
+sys.path.insert(1, '../')
 from benchmarks.benchmark import Benchmark
 
 

@@ -30,10 +30,11 @@ class Benchmark(metaclass=abc.ABCMeta):
     @staticmethod
     def __2d_func(x, y, f): return f((x, y))
 
-    def plot(self, scale=None, save_path=None):
+    def plot(self, scale=None, save_path=None, show=True):
         if not scale:
             scale = abs(self.upper[0] / 100)
-        fig = plt.figure(figsize=(6, 6))
+        fig = plt.figure(figsize=(10,10))
+        fig.tight_layout()
         ax = fig.add_subplot(111, projection='3d')
         # Make data.
         X, Y = arange(self.lower[0], self.upper[0], scale), arange(self.lower[1], self.upper[1], scale)
@@ -52,8 +53,8 @@ class Benchmark(metaclass=abc.ABCMeta):
 
         # Add a color bar which maps values to colors.
         # fig.colorbar(surf, shrink=0.5, aspect=5)
-
-        plt.show()
+        # if show:
+        #     plt.show()  
         if save_path:
             file = save_path + r'/{benchmark}.png'.format(benchmark=self.__class__.__name__)
             fig.savefig(file, dpi=200)
