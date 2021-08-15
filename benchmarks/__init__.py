@@ -4,6 +4,7 @@ from benchmarks.bukin6 import Bukin6
 from benchmarks.camel3 import Camel3
 from benchmarks.camel6 import Camel6
 from benchmarks.crossit import Crossit
+from benchmarks.custom_benchmark import Custom
 from benchmarks.easom import Easom
 from benchmarks.eggholder import Eggholder
 from benchmarks.griewank import Griewank
@@ -33,6 +34,7 @@ __all__ = [
     'Camel3',
     'Camel6',
     'Crossit',
+    'Custom',
     'Easom',
     'Eggholder',
     'FreqModulated',

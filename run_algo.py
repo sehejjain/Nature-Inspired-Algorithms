@@ -3,12 +3,16 @@ from benchmarks import Benchmark, PressureVessel, Stybtang, Schaffer2, Camel6, A
 import logging, os
 import pandas as pd
 import numpy as np
+from cec2017.functions import f1
+# from cec2017.basic import bent_cigar
 
+
+func = f1
 class CustomBenchmark(Benchmark):
     '''
     Set the domain of the function
     '''
-    def __init__(self, lower = [-5,-5], upper=[5,5], dimension = 2):
+    def __init__(self, lower = -100, upper=100, dimension = 2):
         super(CustomBenchmark, self).__init__(lower, upper, dimension)
     
     def get_optimum(self):
@@ -21,11 +25,12 @@ class CustomBenchmark(Benchmark):
         '''
         define custom method here
         '''
-        return sol[0]**2 + sol[1]**2
+        return func(sol)
 
 logging.basicConfig()
 logger = logging.getLogger('cs')
 logger.setLevel('INFO')
-opti = ArtificialBeeColony(func=CustomBenchmark(), iterations=500, debug=False, numb_bees = 20)
+opti = ParticleSwarmOptimization(func=CustomBenchmark(), iterations=500, debug=False)
 best_sol, best_val = opti.run()
 logger.info("best sol:{sol}, best val:{val}".format(sol=best_sol, val=best_val))
+
