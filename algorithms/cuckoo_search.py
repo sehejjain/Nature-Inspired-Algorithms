@@ -18,6 +18,7 @@ class CuckooSearch(Algorithm):
         self.pa = kwargs.pop('pa', 0.4)  # Discovery rate of alien eggs/solutions [0, 0.5]
         self.alpha = kwargs.pop('alpha', 0.5)  # The step size. (alpha>0) Paper recommend value: 1; Matlab: 0.01
         self.lamb = kwargs.pop('lamb', 1.5)  # Levy exponent and coefficient. (lambda must be in [0, 2] or sigma_u<0)
+        self.progress = []
 
     def levy_flight(self, beta):
         r"""Generate step from levy distribution.
@@ -88,6 +89,7 @@ class CuckooSearch(Algorithm):
             best_index = argmin(nest_fit)
             if nest_fit[best_index] < best_fit:
                 best_pos, best_fit = nest_pos[best_index], nest_fit[best_index]
+            self.progress.append(best_fit)
 
         self.best_solution.iloc[:] = append(best_pos, best_fit)
         return best_pos, best_fit

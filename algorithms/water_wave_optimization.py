@@ -22,6 +22,7 @@ class WaterWaveOptimization(Algorithm):
         self.kMax = min(12, self.dim/2)
         self.bRange = fabs(self.upper - self.lower)
         self.epsilon = 1e-31  # a very small positive number to avoid division-by-zero
+        self.progress = []
 
     def propagation(self, pos):
         r"""Creates a new wave.
@@ -121,7 +122,6 @@ class WaterWaveOptimization(Algorithm):
         beta = self.betaMax
 
         self.iter = 0
-        self.progress = []
         while not self.stopping_criteria(self.iter):
             self.iter += 1
             self.iter_swarm_pos.loc[self.iter] = water_wave_pos
@@ -152,6 +152,7 @@ class WaterWaveOptimization(Algorithm):
             beta = self.update_beta()
 
             self.progress.append(best_fit)
+            
 
         self.best_solution.iloc[:] = append(best_pos, best_fit)
         return best_pos, best_fit

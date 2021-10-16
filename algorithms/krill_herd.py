@@ -30,6 +30,7 @@ class KrillHerdBase(Algorithm):
         self.epsilon = kwargs.pop('epsilon', 1e-31)  # Small numbers for division
 
         self.bRange = fabs(self.upper - self.lower)
+        self.progress = []
 
     def init_weights(self):
         r"""the inertia weights (w_n, w_f) generate by user-defined.
@@ -366,6 +367,8 @@ class KrillHerd(KrillHerdBase):
             ikh_best, ikh_worst = argmin(kh_fitness), argmax(kh_fitness)
             if kh_fitness[ikh_best] < best_fit:
                 best_pos, best_fit = kh_position[ikh_best], kh_fitness[ikh_best]
+            
+            self.progress.append(best_fit)
 
         self.best_solution.iloc[:] = append(best_pos, best_fit)
         return best_pos, best_fit
