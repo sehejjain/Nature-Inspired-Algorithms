@@ -22,6 +22,7 @@ from benchmarks.stybtang import Stybtang
 from benchmarks.pressureVessel import PressureVessel
 from benchmarks.xinSheYangN2 import XinSheYangN2
 from benchmarks.freqModulated import FreqModulated
+from benchmarks.genome_sequencing import GenomeSequencing
 
 from benchmarks import cec2014
 
@@ -38,6 +39,7 @@ __all__ = [
     'Easom',
     'Eggholder',
     'FreqModulated',
+    'GenomeSequencing',
     'Griewank',
     'Holdertable',
     'Levy13',
